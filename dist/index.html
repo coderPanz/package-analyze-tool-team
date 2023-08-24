@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analyze Report</title>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/echarts.min.js"></script>
+    <script src="./js/macarons.js"></script>
+  </head>
+
+  <body>
+    <div class="layout">
+      <div id="main" style="width: 100%; height: 100%"></div>
+    </div>
+    <div class="report">
+      <h1 class="title">分析报告</h1>
+      <!-- 循环依赖 -->
+      <div class="circle-box">
+        <h2>循环依赖</h2>
+        <div id="circle"></div>
+      </div>
+      <!-- 多版本实例 -->
+      <div class="version-box">
+        <h2>多版本实例</h2>
+        <div id="multipleVersion"></div>
+      </div>
+    </div>
+  </body>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    body {
+      background-color: #fafafa;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .layout {
+      width: 100vw;
+      height: 90vh;
+      overflow: hidden;
+    }
+
+    i {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 4px;
+      margin-right: 4px;
+    }
+
+    .report {
+      margin-top: 20px;
+      width: 80%;
+    }
+
+    .title {
+      font-size: 28px;
+      color: #666;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-style:groove;
+    }
+
+    .version-box,
+    .circle-box {
+      padding: 10px 20px;
+    }
+
+    .version-box {
+      padding-bottom: 5%;
+    }
+
+    .version-box h2,
+    .circle-box h2 {
+      margin-top: 10px;
+      color: #38bdf8;
+    }
+
+    #circle,
+    #multipleVersion {
+      display: flex;
+      flex-wrap: wrap;
+      font-weight: 700;
+      margin-top: 30px
+    }
+
+    #circle p,
+    #multipleVersion p {
+      width: 100%;
+      margin-top: 5px;
+    }
+  </style>
+  <!-- 渲染依赖关系图 -->
+  <script src="./js/renderEcharts.js"></script>
+  <!-- 渲染分析报告 -->
+  <script src="./js/renderReport.js"></script>
+</html>
